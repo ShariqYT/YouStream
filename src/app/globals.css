@@ -20,9 +20,18 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+/* Fallback for unsupported line-clamp */
+.line-clamp-fallback {
   overflow: hidden;
+  max-height: 2rem; /* Adjust this based on the number of lines you want to display */
+  position: relative;
+}
+
+.line-clamp-fallback::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 1rem; /* This creates a fade effect */
+  width: 100%;
 }

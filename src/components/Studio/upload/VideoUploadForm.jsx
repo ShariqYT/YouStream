@@ -10,7 +10,7 @@ import { TagsInput } from "../TagsInput";
 
 const VideoUploadForm = ({ register, errors, changeValue, thumbnailSrc, isLoading }) => {
   return (
-    <div className="w-full md:w-3/5 flex flex-col gap-8">
+    <div className="w-full md:w-3/5 flex flex-col gap-8 md:mb-0 mb-10">
       <TextArea register={register} limit={'100'} errors={errors} id="title" label="Title (required)" disabled={isLoading} changeValue={changeValue} required />
 
       <TextArea className={`max-h-96 overflow-y-auto`} limit={'5000'} register={register} errors={errors} id="description" label="Description (required)" disabled={isLoading} changeValue={changeValue} required />
@@ -42,7 +42,7 @@ const VideoUploadForm = ({ register, errors, changeValue, thumbnailSrc, isLoadin
             style: {
               border: '1px solid orange',
               borderRadius: '10px',
-              background: 'rgba(255,204,0,0.3)',
+              background: 'rgb(255,214,99)',
               color: '#000',
             },
           });
@@ -66,7 +66,7 @@ const VideoUploadForm = ({ register, errors, changeValue, thumbnailSrc, isLoadin
             style: {
               border: '1px solid orange',
               borderRadius: '10px',
-              background: 'rgba(255,204,0,0.3)',
+              background: 'rgb(255,214,99)',
               color: '#000',
             },
           });

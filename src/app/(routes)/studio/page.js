@@ -16,9 +16,9 @@ export default async function StudioPage() {
     }
 
     return (
-        <div className="flex flex-col w-full h-full p-8">
+        <div className="flex flex-col w-full h-full px-1 py-8 md:p-8">
             <AnalyticsSummary videos={videos} />
-            <div className="flex flex-col gap-4 mt-8">
+            <div className="flex flex-col gap-4 mt-8 px-1 md:px-20">
                 <h2 className="text-2xl">Videos</h2>
                 {
                     videos?.length ? videos.map((video) => {

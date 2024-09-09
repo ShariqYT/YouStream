@@ -20,9 +20,9 @@ const AnalyticsSummary = ({ videos }) => {
     )
 
     return (
-        <div className="mx-auto flex items-center gap-4">
-            <Avatar classname={'object-cover aspect-square cursor-pointer hidden md:inline'} imageSrc={currentChannel?.imageSrc} alt={currentChannel?.name} width={120} height={120} />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mx-auto flex flex-col md:flex-row items-center gap-4">
+            <Avatar classname={'object-cover aspect-square cursor-pointer'} imageSrc={currentChannel?.imageSrc} alt={currentChannel?.name} width={120} height={120} />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <AnalyticsSummaryItem value={currentChannel?.name} subtitle={`@${currentChannel?.handle}`} />
                 <AnalyticsSummaryItem value={compactNumberFormat(currentChannel?.subscriberCount)} subtitle={`Subscribers`} />
                 <AnalyticsSummaryItem value={compactNumberFormat(viewsCount)} subtitle={`Views`} />

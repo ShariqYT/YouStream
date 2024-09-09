@@ -18,20 +18,28 @@ export default async function WatchPage({ params }) {
 
     return video && channel && comments ? (
         <>
-            <div className="flex flex-col lg:flex-row mx-32 mt-2 gap-4">
+            <div className="flex flex-col lg:flex-row md:mx-32 mt-2 gap-4">
                 <div className="w-full lg:w-3/4 flex flex-col gap-4">
                     <VideoPlayer videoSrc={video.videoSrc} />
-                    <h1 className="text-2xl font-semibold break-all">
+                    <h1 className="mx-1 md:mx-0 text-xl md:text-2xl font-semibold break-all">
                         {video.title}
                     </h1>
                     <LikeSubscribeSection video={video} channel={channel} />
                     <Description video={video} />
                     <CommentSection comments={comments} watchId={video._id} />
                 </div>
-                <div className="w-full lg:w-1/4 flex flex-col gap-4 pb-4">
-                {
-                    recommendedVideos?.length ? recommendedVideos.map((recommendVideo, index) => <VideoCard key={index} isVertical={false} channel={recommendVideo.channel} channelAvatar={true} video={recommendVideo} className={'object-cover aspect-square'} width={35} height={35} />) : "No recommended videos yet"
-                }
+                <div className="mx-1 md:mx-0 md:w-full w-[22.9rem] lg:w-1/4 flex flex-col gap-4 pb-24 md:pb-4">
+                    {
+                        recommendedVideos?.length ? recommendedVideos.map((recommendVideo, index) => <div key={index}>
+                            <div className="md:block hidden">
+                                <VideoCard isOption isVertical={false} channel={recommendVideo.channel} channelAvatar={true} video={recommendVideo} className={'object-cover aspect-square'} width={35} height={35} />
+                            </div>
+                            <div className="md:hidden block">
+                                <VideoCard isOption isVertical={true} channel={recommendVideo.channel} channelAvatar={true} video={recommendVideo} className={'object-cover aspect-square'} width={35} height={35} />
+                            </div>
+                        </div>
+                        ) : "No recommended videos yet"
+                    }
                 </div>
             </div>
         </>

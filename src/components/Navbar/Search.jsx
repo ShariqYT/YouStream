@@ -45,7 +45,7 @@ const Search = () => {
 
                 <span onClick={() => setShowSearch(true)} className='flex items-center placeholder:text-gray-600 text-gray-600'><FiSearch className='text-2xl' /></span>
 
-                <div className={`${showSearch ? 'translate-x-0' : 'translate-x-[110%]'} transform transition-transform duration-200 ease-in-out w-fit h-fit flex items-center justify-between absolute top-0 left-2 bg-white py-2`}>
+                <div className={`${showSearch ? 'translate-x-0' : 'translate-x-[110%]'} transform transition-transform duration-200 ease-in-out w-fit h-fit flex items-center justify-between absolute top-1 left-2 bg-white py-2`}>
 
                     <IoIosArrowBack onClick={() => setShowSearch(false)} className='text-4xl text-gray-600 cursor-pointer' />
                     <input

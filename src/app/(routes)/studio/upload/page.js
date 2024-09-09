@@ -91,16 +91,14 @@ export default function UploadPage() {
         }
     };
 
-
-
     return (
-        <div className="w-full h-full py-20 px-20">
+        <div className="w-full h-full md:py-10 md:px-20">
             {uploadVideoModal.isOpen && (
                 <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 z-[10] -translate-y-1/2 w-full h-full">
                     <UploadVideoModal onUpload={(value) => changeValue("videoSrc", value)} />
                 </div>
             )}
-            <div className="flex flex-col px-8 pt-4">
+            <div className="flex flex-col px-4 md:px-8 pt-4">
                 <div className="flex justify-between">
                     <h1 className="text-2xl font-semibold">Details</h1>
                     <span className="flex gap-4">
@@ -110,7 +108,7 @@ export default function UploadPage() {
                         </Button>
                     </span>
                 </div>
-                <div className="mt-6 flex flex-col md:flex-row gap-6 md:gap-2">
+                <div className="mt-6 flex flex-col-reverse md:flex-row gap-6 md:gap-2">
                     <VideoUploadForm
                         register={register}
                         errors={errors}

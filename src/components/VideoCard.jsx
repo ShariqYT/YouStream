@@ -83,7 +83,7 @@ const VideoCard = ({
                             ) : null
                         }
                         <div className="flex flex-col">
-                            <h3 className={`line-clamp-2 md:min-h-12 ${isVertical ? 'text-md font-semibold' : 'text-md leading-5'}`}>{video.title}</h3>
+                            <h3 className={`line-clamp-2 ${isVertical ? 'text-md font-semibold' : 'text-md leading-5'}`}>{video.title}</h3>
                             {
                                 channel ? (
                                     <Link href={`/channel/${channel._id}`}>

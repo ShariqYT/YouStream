@@ -28,8 +28,8 @@ const VideoPreview = ({ videoSrc, videoId }) => {
   }
 
   return (
-    <div className="w-full md:w-2/5 flex flex-col gap-8 overflow-hidden rounded-md">
-      <iframe src={videoSrc} className="aspect-video w-96 h-fit drop-shadow-[0_0_20px_rgba(0,0,0,0.25)] mx-auto rounded-md" />
+    <div className="w-full md:w-2/5 flex flex-col gap-8 md:overflow-hidden rounded-md">
+      <iframe src={videoSrc} className="aspect-video w-[21.5rem] md:w-96 h-fit drop-shadow-[0_0_20px_rgba(0,0,0,0.25)] mx-auto rounded-md" />
 
       <div className="bg-blue-100 p-4 flex flex-col gap-4 rounded-md">
 

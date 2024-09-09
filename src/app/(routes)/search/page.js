@@ -39,21 +39,36 @@ function SearchPageContent({ search_query }) {
   }, [search_query]);
 
   return (
-    <div className="w-1/2 mx-auto flex flex-col gap-4 items-center pb-4">
+    <div className="md:w-1/2 w-[22.9rem] mx-1 md:mx-auto flex flex-col gap-8 md:gap-4 items-center pb-24 md:pb-4">
       {videos.length
         ? videos.map((video) => (
-          <VideoCard
-            key={video.id}
-            isVertical={false}
-            video={video}
-            channel={video.channel}
-            includeDescription
-            isOption
-            channelAvatar={true}
-            className="object-cover aspect-square"
-            width={35}
-            height={35}
-          />
+          <div key={video.id}>
+            <div className="md:block hidden">
+              <VideoCard
+                isVertical={false}
+                video={video}
+                channel={video.channel}
+                includeDescription
+                isOption
+                channelAvatar={true}
+                className="object-cover aspect-square"
+                width={35}
+                height={35}
+              />
+            </div>
+            <div className="block md:hidden">
+              <VideoCard
+                isVertical={true}
+                video={video}
+                channel={video.channel}
+                isOption
+                channelAvatar={true}
+                className="object-cover aspect-square"
+                width={35}
+                height={35}
+              />
+            </div>
+          </div>
         ))
         : "No videos found"}
     </div>

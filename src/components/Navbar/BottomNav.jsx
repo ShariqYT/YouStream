@@ -31,7 +31,7 @@ const BottomNav = () => {
 
     return (
         <header className={` ${pathname === '/studio' || pathname === '/studio/upload' ? 'hidden' : ''} drop-shadow-[0_0_10px_rgba(0,0,0,0.1)] z-[1050] fixed transform left-[50%] bottom-0 translate-x-[-50%]`}>
-            <div className='w-[100vw] md:w-[32vw] bg-white flex justify-evenly items-center border-b-0 border-2 border-[#35b7ff] rounded-b-none rounded-xl py-2'>
+            <div className='w-[100vw] md:w-[32vw] bg-white flex justify-evenly items-center border-b-0 border-2 border-[#35b7ff] rounded-b-none rounded-xl md:py-2'>
                 <Link href={'/'}>
                     <button
                         className={`rounded-full px-2 flex flex-col items-center text-[10px] md:text-sm ${pathname === '/' ? 'bg-cyan-400 bg-opacity-50' : 'hover:bg-cyan-400 hover:bg-opacity-50'}`}
@@ -41,7 +41,9 @@ const BottomNav = () => {
                     </button>
                 </Link>
 
-                <button onClick={handleUploadClick} title='Upload' className={`${pathname === '/upload' ? 'bg-[#35b7ff] bg-opacity-75' : ''} md:hidden flex flex-col text-[10px] items-center py-2 px-2 placeholder:text-gray-600 text-black rounded-full outline-none hover:border-[#35b7ff]`}><RiVideoUploadLine className='text-2xl' />Upload</button>
+                {currentUser &&
+                    <button onClick={handleUploadClick} title='Upload' className={`${pathname === '/upload' ? 'bg-[#35b7ff] bg-opacity-75' : ''} md:hidden flex flex-col text-[10px] items-center py-2 px-2 placeholder:text-gray-600 text-black rounded-full outline-none hover:border-[#35b7ff]`}><RiVideoUploadLine className='text-2xl' />Upload</button>
+                }
 
                 <Link href={'/subscriptions'}>
                     <button
@@ -54,7 +56,7 @@ const BottomNav = () => {
 
                 <div className='md:hidden flex flex-col items-center text-[10px] '>
                     <Avatar title={'Account'} alt={"avatar"} width={25} height={25} imageSrc={currentUser?.image} classname={'cursor-pointer, aspect-square object-contain'} currentUser={currentUser} onClick={() => setAcctMenu(true)} />
-                        You
+                    You
                     {acctMenu ? <Account currentUser={currentUser} onClose={() => setAcctMenu(false)} /> : null}
                 </div>
 

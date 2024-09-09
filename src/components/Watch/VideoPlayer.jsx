@@ -162,7 +162,7 @@ const VideoPlayer = ({ videoSrc }) => {
     }, [timelineRef, videoRef]);
 
     return (
-        <div className="relative w-full rounded-2xl overflow-hidden flex justify-center group bg-black">
+        <div className="relative w-full md:rounded-2xl overflow-hidden flex justify-center group bg-black">
             <div className={`absolute bottom-0 left-0 right-0 py-2 text-white bg-gradient-to-t from-black z-10 opacity-0 transition-opacity group-hover:opacity-100`}>
                 <div className="cursor-pointer flex items-center mx-2 h-2 group/timeline">
                     <div className={`w-full relative bg-gray-500 opacity-50 hover:opacity-100 h-1 group-hover/timeline:h-[0.4rem] transition-[height] duration-100`} onClick={handleTimeUpdate} ref={timelineRef}>
@@ -177,7 +177,7 @@ const VideoPlayer = ({ videoSrc }) => {
                                 isPlaying ? <FaPause /> : <FaPlay />
                             }
                         </button>
-                        <div className="flex items-center gap-1 group/volume">
+                        <div className="hidden md:flex items-center gap-1 group/volume">
                             <button className="px-2 cursor-pointer" onClick={handleMuted}>
                                 {
                                     videoRef.current?.muted ? (<FaVolumeXmark />) : videoRef.current && videoRef.current.volume <= 0.5 ? (<FaVolumeLow />) : (<FaVolumeHigh />)
