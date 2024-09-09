@@ -11,10 +11,10 @@ const subscriptions = async () => {
   const subscriptionVideos = await getSubscriptionVideo()
   
   return (
-    <div className='mx-24 flex flex-col items-end'>
+    <div className='md:mx-24 flex flex-col items-center md:items-end'>
       <SubscriptionHeader currentUser={currentUser} subscriptions={subscriptions} />
       {
-        subscriptionVideos.length ? <SubscriptionList videos={subscriptionVideos} /> : <div className='text-xl m-auto w-fit transform translate-x-1/2 translate-y-1/2'>Subscribe to get videos here</div>
+        subscriptionVideos.length ? <SubscriptionList videos={subscriptionVideos} /> : <div className='text-xl md:m-auto md:transform md:translate-x-1/2 md:translate-y-1/2'>Subscribe to get videos here</div>
       }
     </div>
   )

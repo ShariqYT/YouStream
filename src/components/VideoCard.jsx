@@ -72,49 +72,52 @@ const VideoCard = ({
                     <video ref={videoRef} src={video.videoSrc} className="hidden" />
                 </div>
 
-                <div className={`flex gap-2 items-start ${isVertical ? 'w-full' : 'w-3/5'}`}>
-                    {
-                        channel && channelAvatar && isVertical ? (
-                            <Link href={`/channel/${channel._id}`}>
-                                <Avatar classname={`mt-1 ${className}`} width={width} height={height} imageSrc={channel.imageSrc} alt={channel.name} />
-                            </Link>
-                        ) : null
-                    }
-                    <div className="flex flex-col">
-                        <h3 className={`line-clamp-2 ${isVertical ? 'text-md font-semibold' : 'text-md leading-5'}`}>{video.title}</h3>
-                        {
-                            channel ? (
-                                <Link href={`/channel/${channel._id}`}>
-                                    <div className="flex gap-2 items-center">
-                                        {
-                                            !isVertical && channelAvatar ? (
-                                                <Avatar width={width} height={height} classname={`mt-1 ${className}`} imageSrc={channel.imageSrc} alt={channel.name} />
+                <div className={`flex gap-2 justify-between ${isVertical ? 'w-full' : 'w-3/5'}`}>
+                    <div className="flex gap-2 items-start">
 
-                                            ) : null
-                                        }
-                                        <p className="text-sm whitespace-nowrap font-semibold text-[#35b7ff]">{channel.name}</p>
-                                    </div>
+                        {
+                            channel && channelAvatar && isVertical ? (
+                                <Link href={`/channel/${channel._id}`}>
+                                    <Avatar classname={`mt-1 ${className}`} width={width} height={height} imageSrc={channel.imageSrc} alt={channel.name} />
                                 </Link>
                             ) : null
                         }
-                        <p className="text-neutral-600 text-sm">
-                            {compactNumberFormat(video.viewCount)} views • {dayjs(video.createdAt).fromNow()}
-                        </p>
-                        {
-                            includeDescription ? (
-                                <div className="whitespace-pre-line line-clamp-2 text-sm text-neutral-600">
-                                    {
-                                        video.description.split("\n").map((line, index) => {
-                                            return line === "" ? (
-                                                <br key={index} />
-                                            ) : (
-                                                <p key={index}>{line}</p>
-                                            )
-                                        })
-                                    }
-                                </div>
-                            ) : null
-                        }
+                        <div className="flex flex-col">
+                            <h3 className={`line-clamp-2 md:min-h-12 ${isVertical ? 'text-md font-semibold' : 'text-md leading-5'}`}>{video.title}</h3>
+                            {
+                                channel ? (
+                                    <Link href={`/channel/${channel._id}`}>
+                                        <div className="flex gap-2 items-center">
+                                            {
+                                                !isVertical && channelAvatar ? (
+                                                    <Avatar width={width} height={height} classname={`mt-1 ${className}`} imageSrc={channel.imageSrc} alt={channel.name} />
+
+                                                ) : null
+                                            }
+                                            <p className="text-sm whitespace-nowrap font-semibold text-[#35b7ff]">{channel.name}</p>
+                                        </div>
+                                    </Link>
+                                ) : null
+                            }
+                            <p className="text-neutral-600 text-sm">
+                                {compactNumberFormat(video.viewCount)} views • {dayjs(video.createdAt).fromNow()}
+                            </p>
+                            {
+                                includeDescription ? (
+                                    <div className="whitespace-pre-line line-clamp-2 text-sm text-neutral-600">
+                                        {
+                                            video.description.split("\n").map((line, index) => {
+                                                return line === "" ? (
+                                                    <br key={index} />
+                                                ) : (
+                                                    <p key={index}>{line}</p>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                ) : null
+                            }
+                        </div>
                     </div>
 
                     <VideoMoreOptions isOption={isOption} />

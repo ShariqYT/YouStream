@@ -7,7 +7,7 @@ const SubscriptionList = ({ videos }) => {
     useProtectedRoutes({ checkChannel: false });
 
     return (
-        <div className="mx-12 sm:mx-24 py-8 scale-[1.1] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="mx-1 pb-24 md:pb-8 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-2">
             {videos.map(video => (
                 <VideoCard
                     key={video._id}
@@ -17,6 +17,7 @@ const SubscriptionList = ({ videos }) => {
                     width={40}
                     height={40}
                     className={"object-cover aspect-square"}
+                    isOption
                 />
             ))}
         </div>

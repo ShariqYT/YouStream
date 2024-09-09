@@ -17,11 +17,11 @@ export default async function ChannelPage({ params }) {
                     videos
                 </div>
             </div>
-            <div className="mx-auto sm:mx-24 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <div className="mx-1 sm:mx-24 pb-32 md:pb-8 py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 md:gap-4">
                 {
                     videos.map((video) => (
                         video ? (
-                            <VideoCard key={video._id} video={video} />
+                            <VideoCard key={video._id} video={video} isOption />
                         ) : null
                     ))
                 }

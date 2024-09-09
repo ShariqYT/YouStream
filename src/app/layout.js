@@ -33,14 +33,14 @@ export default async function RootLayout({ children }) {
           routerConfig={extractRouterConfig(OurFileRouter)}
         />
         <CreateChannelModalProvider>
-          <NextTopLoader color="#35b7ff" easing="ease" shadow="0 0 10px #35b7ff,0 0 5px #35b7ff" zIndex={1600} speed={100} crawler={true} crawlSpeed={100} showSpinner={false} />
+          <NextTopLoader color="#35b7ff" easing="ease" shadow="0 0 30px #35b7ff,0 0 15px #35b7ff" zIndex={1600} speed={100} crawler={true} crawlSpeed={100} showSpinner={false} />
           <Toaster toastOptions={{ duration: 5000, position: 'bottom-right' }} />
           <CreateChannelModal />
           <CurrentUserProvider user={currentUser}>
             <CurrentChannelProvider channel={currentChannel}>
               <UploadVideoModalProvider>
                 <Header />
-                <div className="mt-28">
+                <div className="mt-24 md:mt-28">
                   {children}
                 </div>
                 <BottomNav />
